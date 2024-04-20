@@ -134,13 +134,6 @@ private:
 public:
     OnlineStore() {}
 
-    // Function to display available products
-    void displayProducts() const {
-        cout << "Available Products:" << endl;
-        furniture.disp_prod();
-        stationary.disp_prod();
-    }
-
     // Function to prompt user for product selection and add it to cart
     void addToCart() {
         char category;

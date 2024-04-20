@@ -17,16 +17,16 @@ public:
     virtual int getPid() const { return pid; }
 };
 
-// Derived class representing a clothing product
+// Derived class representing a stationary product
 class Electronics : public Product {
 public:
     Electronics(string n, double p, int pd) : Product(n, p, pd) {}
 };
 
-// Derived class representing a footwear product
-class Footwear : public Product {
+// Derived class representing a stationary product
+class Stationary : public Product {
 public:
-    Footwear(string n, double p, int pd) : Product(n, p, pd) {}
+    Stationary(string n, double p, int pd) : Product(n, p, pd) {}
 };
 
 // Class to represent a shopping cart
@@ -114,9 +114,9 @@ int main() {
     OnlineStore store;
 
     // Adding some products to the store
-    store.addProduct(new Clothing("T-shirt", 20.0, 1));
-    store.addProduct(new Clothing("Jeans", 40.0, 2));
-    store.addProduct(new Footwear("Shoes", 50.0, 3));
+    store.addProduct(new Electronics("HP laptop", 200000.0, 1));
+    store.addProduct(new Electronics("Apple 15 pro max", 165000.0, 2));
+    store.addProduct(new Stationary("Pen-stand", 50.0, 3));
 
     // Display available products
     store.displayProducts();

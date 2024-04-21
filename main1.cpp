@@ -354,7 +354,7 @@ int main() {
 
 
     // Display available products in the store
-    cout<<"Available Categories;"<<endl;
+    cout<<"Available Categories:"<<endl;
     cout<<"1. Furniture"<<endl;
     cout<<"2. Stationaries"<<endl;
     cout<<"3. Electronics"<<endl;

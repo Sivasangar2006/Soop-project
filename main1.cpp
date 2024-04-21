@@ -16,7 +16,7 @@ public:
     virtual void disp_prod() const {
         cout << "Name: " << name << endl;
         cout << "Description: " << description << endl;
-        cout << "Price: rupees" << price << endl;
+        cout << "Price: ₹" << price << endl;
         cout << "Product ID: " << pid << endl;
     }
     double getPrice() const { return price; }
@@ -116,7 +116,7 @@ public:
             items[i]->disp_prod();
             total += items[i]->getPrice();
         }
-        cout << "Total: rupees " << total << endl;
+        cout << "Total: ₹ " << total << endl;
     }
 
     ~ShoppingCart() {

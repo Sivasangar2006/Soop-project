@@ -107,7 +107,7 @@ public:
         electronics[2]= new Product("Dell 14 Laptop","13th Gen Intel Core i5", 46,990.00, 20);
         electronics[3]= new Product("HP 15s laptop", "12th Gen Intel Core i5", 54,990.00, 21);
         electronics[4]= new Product("boAt airpods 141", "42H playtime and ENx tech", 1,299.00, 22);
-        electronics[5]= new Product("Noise Buds N1 airpods, "40 Hours of playtime and Quad Mic with ENC", 1,299.00, 23);
+        electronics[5]= new Product("Noise Buds N1 airpods", "40 Hours of playtime and Quad Mic with ENC", 1,299.00, 23);
         electronics[6]= new Product("Apple iPad 10th Gen tablet", "A14 Bionic Chip and Liquid retina display", 36,900.00, 24);
         electronics[7]= new Product("Samsung S6 Lite tablets", "S-Pen in box and AKG Tuned dolby atmos", 19,999.00, 25);
         electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81 inches Display and AI Voice Assistance", 1,299.00, 26);

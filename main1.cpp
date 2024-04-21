@@ -384,7 +384,7 @@ int main() {
     }
     
     // Prompt user for product selection and add it to cart
-    cout<<"Be careful when adding items to your cart, if u addd once, u cant remove them later"<<endl;
+    cout<<"! ! ! Be careful when adding items to your cart, if you add once, you can't remove them later ! ! !"<<endl;
     store.addToCart();
     store.cart.displayCart();
     cout<<"Want to continue shopping? (y/n):";
@@ -429,7 +429,8 @@ int main() {
     // Display items in the cart
     cout<<"Final cart:"<<endl;
     store.cart.displayCart();
-    cout<<"Press 1 to confirm your orders , 0 to abort the cancel your orders.";
+    cout<<"Press 1 to confirm your orders , 0 to cancel your orders."<<endl;
+    cout<<"Your choice:"<<endl;
     cin>>fchoice;
     if (fchoice==1)
     {

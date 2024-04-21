@@ -14,9 +14,9 @@ public:
     Product(string n, string desc, double p, int pd) : name(n), description(desc), price(p), pid(pd) {}
     virtual ~Product() {} // Virtual destructor for polymorphic behavior
     virtual void disp_prod() const {
-        cout << "Name: " << name << endl;
-        cout << "Description: " << description << endl;
-        cout << "Price: ₹" << price << endl;
+        cout << "Name: " << name <<endl;
+        cout << "Description: " << description <<endl;
+        cout << "Price: Rupees " << price <<endl;
         cout << "Product ID: " << pid << endl;
     }
     double getPrice() const { return price; }
@@ -33,12 +33,12 @@ protected:
 public:
     Furniture() : Product("", "", 0, 0) {
         furnitureProducts[0] = new Product("Mattresses", "Comfortable mattresses for a good night's sleep", 16000.0, 1);
-        furnitureProducts[1] = new Product("Office Chair", "Ergonomic chair for office use", 2450.0, 2);
-        furnitureProducts[2] = new Product("Study Table", "Spacious study table for work or study", 3500.0, 3);
-        furnitureProducts[3] = new Product("Pooja Cabinet", "Traditional pooja cabinet for home worship", 18000.0, 4);
-        furnitureProducts[4] = new Product("Gaming Chair", "Specially designed chair for gaming enthusiasts", 8500.0, 5);
-        furnitureProducts[5] = new Product("Recliners", "Comfortable recliners for relaxation", 30000.0, 6);
-        furnitureProducts[6] = new Product("Wardrobes", "Spacious wardrobes for storing clothes", 20000.0, 7);
+        furnitureProducts[1] = new Product("Office Chair", "Ergonomic chair for office use", 8000.0, 2);
+        furnitureProducts[2] = new Product("Study Table", "Spacious study table for work or study", 12000.0, 3);
+        furnitureProducts[3] = new Product("Pooja Cabinet", "Traditional pooja cabinet for home worship", 14400.0, 4);
+        furnitureProducts[4] = new Product("Gaming Chair", "Specially designed chair for gaming enthusiasts", 20000.0, 5);
+        furnitureProducts[5] = new Product("Recliners", "Comfortable recliners for relaxation", 24000.0, 6);
+        furnitureProducts[6] = new Product("Wardrobes", "Spacious wardrobes for storing clothes", 32000.0, 7);
     }
     void disp_prod() const override {
         cout << "Furniture Products:" << endl;
@@ -65,16 +65,16 @@ protected:
     Product* stationaryProducts[NUM_STATIONARY];
 public:
     Stationary() : Product("", "", 0, 0) {
-        stationaryProducts[0] = new Product("Copier Papers", "High-quality copier papers for printing", 127.0, 8);
-        stationaryProducts[1] = new Product("Pens", "Smooth-writing pens for everyday use", 10.0, 9);
-        stationaryProducts[2] = new Product("Calculators", "Basic calculators for mathematical calculations", 1000.0, 10);
-        stationaryProducts[3] = new Product("Geometry Sets", "Geometry sets for school students", 300.0, 11);
-        stationaryProducts[4] = new Product("Colour Crayons", "Vibrant colour crayons for art projects", 20.0, 12);
-        stationaryProducts[5] = new Product("Pencils", "Standard pencils for writing and drawing", 10.0, 13);
-        stationaryProducts[6] = new Product("Penstand", "Penstands for organizing pens and pencils", 75.0, 14);
-        stationaryProducts[7] = new Product("Notes", "Small notepads for jotting down quick notes", 67.0, 15);
-        stationaryProducts[8] = new Product("Sticky Notes", "Colourful sticky notes for reminders and messages", 20.0, 16);
-        stationaryProducts[9] = new Product("Personal Diary", "Personal diaries for journaling and planning", 225.0, 17);
+        stationaryProducts[0] = new Product("Copier Papers", "High-quality copier papers for printing", 400.0, 8);
+        stationaryProducts[1] = new Product("Pens", "Smooth-writing pens for everyday use", 80.0, 9);
+        stationaryProducts[2] = new Product("Calculators", "Basic calculators for mathematical calculations", 800.0, 10);
+        stationaryProducts[3] = new Product("Geometry Sets", "Geometry sets for school students", 240.0, 11);
+        stationaryProducts[4] = new Product("Colour Crayons", "Vibrant colour crayons for art projects", 160.0, 12);
+        stationaryProducts[5] = new Product("Pencils", "Standard pencils for writing and drawing", 80.0, 13);
+        stationaryProducts[6] = new Product("Penstand", "Penstands for organizing pens and pencils", 320.0, 14);
+        stationaryProducts[7] = new Product("Notes", "Small notepads for jotting down quick notes", 240.0, 15);
+        stationaryProducts[8] = new Product("Sticky Notes", "Colourful sticky notes for reminders and messages", 160.0, 16);
+        stationaryProducts[9] = new Product("Personal Diary", "Personal diaries for journaling and planning", 480.0, 17);
     }
     void disp_prod() const override {
         cout << "Stationary Products:" << endl;
@@ -97,23 +97,23 @@ public:
 class Electronics : public Product
 {
 protected:
-    const int NUM_ELECTRONICS=12;
+    static const int NUM_ELECTRONICS = 12;
     Product* electronics[NUM_ELECTRONICS];
 public:
     Electronics() : Product("","",0,0)
     {
-        electronics[0]= new Product("Redmi 13C Mobile Phone","Highest selling 5G smartphone",10,499.00, 18);
-        electronics[1]= new Product("Samsung Galaxy M14 5G mobile phone","Segment's only 6000 mAh 5G SP",12,490.00, 19);
-        electronics[2]= new Product("Dell 14 Laptop","13th Gen Intel Core i5", 46,990.00, 20);
-        electronics[3]= new Product("HP 15s laptop", "12th Gen Intel Core i5", 54,990.00, 21);
-        electronics[4]= new Product("boAt airpods 141", "42H playtime and ENx tech", 1,299.00, 22);
-        electronics[5]= new Product("Noise Buds N1 airpods", "40 Hours of playtime and Quad Mic with ENC", 1,299.00, 23);
-        electronics[6]= new Product("Apple iPad 10th Gen tablet", "A14 Bionic Chip and Liquid retina display", 36,900.00, 24);
-        electronics[7]= new Product("Samsung S6 Lite tablets", "S-Pen in box and AKG Tuned dolby atmos", 19,999.00, 25);
-        electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81 inches Display and AI Voice Assistance", 1,299.00, 26);
-        electronics[9]= new Product("boAt Wave Call 2 smartwatch", "1.83 inches HD Display and DIY Watch Face Studio", 1,099.00, 27);
-        electronics[10]= new Product("Amazon Echo Pop", "Smart Speaker with Alexa and Bluetooth", 3,999.00, 28);
-        electronics[11]= new Product("Amazon Echo Dot 4th Gen with clock", "Smart Speaker with powerful bass", 5,499.00, 29);
+        electronics[0]= new Product("Redmi 13C Mobile Phone","Highest selling 5G smartphone",10499.0, 18);
+        electronics[1]= new Product("Samsung Galaxy M14 5G mobile phone","Segment's only 6000 mAh 5G SP",12490.0, 19);
+        electronics[2]= new Product("Dell 14 Laptop","13th Gen Intel Core i5", 46990.0, 20);
+        electronics[3]= new Product("HP 15s laptop", "12th Gen Intel Core i5", 54990.0, 21);
+        electronics[4]= new Product("boAt airpods 141", "42H playtime and ENx tech", 1299.0, 22);
+        electronics[5]= new Product("Noise Buds N1 airpods", "40 Hours of playtime and Quad Mic with ENC", 1299.0, 23);
+        electronics[6]= new Product("Apple iPad 10th Gen tablet", "A14 Bionic Chip and Liquid retina display", 36900.0, 24);
+        electronics[7]= new Product("Samsung S6 Lite tablets", "S-Pen in box and AKG Tuned dolby atmos", 19999.0, 25);
+        electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81' Display and AI Voice Assistance", 1299.0, 26);
+        electronics[9]= new Product("boAt Wave Call 2 smartwatch", "1.83' HD Display and DIY Watch Face Studio", 1099.0, 27);
+        electronics[10]= new Product("Amazon Echo Pop", "Smart Speaker with Alexa and Bluetooth", 3999.0, 28);
+        electronics[11]= new Product("Amazon Echo Dot 4th Gen with clock", "Smart Speaker with powerful bass", 5499.0, 29);
     }
      void disp_prod() const override 
     {
@@ -139,22 +139,22 @@ public:
 class Books: public Product
 {
 protected:
-    const int NUM_BOOKS=11;
+    static const int NUM_BOOKS = 11;
     Product* books[NUM_BOOKS];
 public:
     Books(): Product("","",0,0)
     {
-        books[0]= new Product("It ends with us", "By Colleen Hoover", 280.00, 30);
-        books[1]= new Product("The temporary roomie", "By Sarah Adams", 180.00,31);
-        books[2]= new Product("Don't believe everything you think", "By Joseph Nguyen", 179.00, 32);
-        books[3]= new Product("The wealth money can't buy", "By Robin Sharma", 349.00, 33);
-        books[4]= new Product("The mountain is you", "By Brianna Wiest", 289.00, 34);
-        books[5]= new Product("And then there were none", "By Agatha Christie", 268.00, 35);
-        books[6]= new Product("As good as dead", "By Holly Jackson", 381.00, 36);
-        books[7]= new Product("The Psychology of money", "By Morgan Housel", 275.00, 37);
-        books[8]= new Product("The power of your subconscious mind", "By Joseph Murphy", 149.00, 38);
-        books[9]= new Product("The Alchemist", "By Paulo Coelho", 301.00, 39);
-        books[10]= new Product("The blue umbrella", "By Ruskin Bond", 145.00, 40);
+        books[0]= new Product("It ends with us", "By Colleen Hoover", 280.0, 30);
+        books[1]= new Product("The temporary roomie", "By Sarah Adams", 180.0,31);
+        books[2]= new Product("Don't believe everything you think", "By Joseph Nguyen", 179.0, 32);
+        books[3]= new Product("The wealth money can't buy", "By Robin Sharma", 349.0, 33);
+        books[4]= new Product("The mountain is you", "By Brianna Wiest", 289.0, 34);
+        books[5]= new Product("And then there were none", "By Agatha Christie", 268.0, 35);
+        books[6]= new Product("As good as dead", "By Holly Jackson", 381.0, 36);
+        books[7]= new Product("The Psychology of money", "By Morgan Housel", 275.0, 37);
+        books[8]= new Product("The power of your subconscious mind", "By Joseph Murphy", 149.0, 38);
+        books[9]= new Product("The Alchemist", "By Paulo Coelho", 301.0, 39);
+        books[10]= new Product("The blue umbrella", "By Ruskin Bond", 145.0, 40);
     }
     void disp_prod() const override 
     {
@@ -180,21 +180,21 @@ public:
 class Appliances: public Product
 {
 protected:
-    const int NUM_APPLIANCES=10;
+    static const int NUM_APPLIANCES = 10;
     Product* appliances[NUM_APPLIANCES];
 public:
     Appliances(): Product("","",0,0)
     {
-        appliances[0]= new Product("Samsung 301 L 3 star refigerator", "Convertible 5 in 1 technology", 34,990.00, 41);
-        appliances[1]= new Product("Godrej 564 L 3 star refrigerator", "Multi air flow system", 56,990.00, 42);
-        appliances[2]= new Product("Panasonic 1.5 ton 5 star", "7 in 1 convertible smart AC", 44,990.00, 43);
-        appliances[3]= new Product("LG 1 ton 4 star", "Viraat mode for instant cooling", 35,990.00, 44);
-        appliances[4]= new Product("OnePlus 65' Q series", "4K QLED Smart google TV", 75,999.00, 45);
-        appliances[5]= new Product("Xiaomi 43' X series", "4K UHD Smart google TV", 25,499.00, 46);
-        appliances[6]= new Product("Smasung 8 kg 5 star", "Fully-Automatic front load washing machine", 36,990.00, 47);
-        appliances[7]= new Product("Haier 8 kg 5 star", "Fully-Automatic top load washing machine", 23,850.00, 48);
-        appliances[8]= new Product("Samsung 28 L", "Convection microwave oven with curd making", 12,490.00, 49);
-        appliances[9]= new Product("Faber Instacook20_S", "Digital Standalone 20 L microwave oven", 6790.00, 50);
+        appliances[0]= new Product("Samsung 301 L 3 star refigerator", "Convertible 5 in 1 technology", 34990.0, 41);
+        appliances[1]= new Product("Godrej 564 L 3 star refrigerator", "Multi air flow system", 56990.0, 42);
+        appliances[2]= new Product("Panasonic 1.5 ton 5 star", "7 in 1 convertible smart AC", 44990.0, 43);
+        appliances[3]= new Product("LG 1 ton 4 star", "Viraat mode for instant cooling", 35990.0, 44);
+        appliances[4]= new Product("OnePlus 65' Q series", "4K QLED Smart google TV", 75999.0, 45);
+        appliances[5]= new Product("Xiaomi 43' X series", "4K UHD Smart google TV", 25499.0, 46);
+        appliances[6]= new Product("Smasung 8 kg 5 star", "Fully-Automatic front load washing machine", 36990.0, 47);
+        appliances[7]= new Product("Haier 8 kg 5 star", "Fully-Automatic top load washing machine", 23850.0, 48);
+        appliances[8]= new Product("Samsung 28 L", "Convection microwave oven with curd making", 12490.0, 49);
+        appliances[9]= new Product("Faber Instacook20_S", "Digital Standalone 20 L microwave oven", 6790.0, 50);
     }
     void disp_prod() const override 
     {
@@ -235,13 +235,13 @@ public:
     }
 
     void displayCart() const {
-        cout << "Your Shopping Cart:" << endl;
+        cout << "\nYour Shopping Cart:" << endl;
         double total = 0.0;
         for (int i = 0; i < itemCount; ++i) {
             items[i]->disp_prod();
             total += items[i]->getPrice();
         }
-        cout << "Total: ₹" << total << endl;
+        cout << "\nTotal: Rupees" << total << endl;
     }
 
     ~ShoppingCart() {
@@ -370,7 +370,7 @@ int main() {
     {
         s.disp_prod();
     }
-    else if(choice==3)
+    else if(cchoice==3)
     {
         e.disp_prod();
     }
@@ -391,7 +391,7 @@ int main() {
     cin>>ch;
     while(ch=='y')
     {
-        cout<<"Available Categories;"<<endl;
+        cout<<"Available Categories:"<<endl;
         cout<<"1. Furniture"<<endl;
         cout<<"2. Stationaries"<<endl;
         cout<<"3. Electronics"<<endl;
@@ -433,7 +433,7 @@ int main() {
     cin>>fchoice;
     if (fchoice==1)
     {
-        cout<<"Dear "<<name<<", your order has been confirmed and it will be delivered at the address,"<<address<<"Please be sure to check your orders before you pay :)))"<<endl<<"Have a NICE DAY!!!!!"<<endl;
+        cout<<"Dear "<<name<<", your order has been confirmed and it will be delivered at the address,"<<address<<"\nPlease be sure to check your orders before you pay :)))"<<endl<<"Have a NICE DAY!!!!!"<<endl;
     }
     else{
         cout<<"Your orders have been cancelled.";

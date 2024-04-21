@@ -110,8 +110,8 @@ public:
         electronics[5]= new Product("Noise Buds N1 airpods, "40 Hours of playtime and Quad Mic with ENC", 1,299.00, 23);
         electronics[6]= new Product("Apple iPad 10th Gen tablet", "A14 Bionic Chip and Liquid retina display", 36,900.00, 24);
         electronics[7]= new Product("Samsung S6 Lite tablets", "S-Pen in box and AKG Tuned dolby atmos", 19,999.00, 25);
-        electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81\' Display and AI Voice Assistance", 1,299.00, 26);
-        electronics[9]= new Product("boAt Wave Call 2 smartwatch", "1.83\' HD Display and DIY Watch Face Studio", 1,099.00, 27);
+        electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81 inches Display and AI Voice Assistance", 1,299.00, 26);
+        electronics[9]= new Product("boAt Wave Call 2 smartwatch", "1.83 inches HD Display and DIY Watch Face Studio", 1,099.00, 27);
         electronics[10]= new Product("Amazon Echo Pop", "Smart Speaker with Alexa and Bluetooth", 3,999.00, 28);
         electronics[11]= new Product("Amazon Echo Dot 4th Gen with clock", "Smart Speaker with powerful bass", 5,499.00, 29);
     }

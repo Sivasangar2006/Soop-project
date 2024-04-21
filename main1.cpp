@@ -16,7 +16,7 @@ public:
     virtual void disp_prod() const {
         cout << "Name: " << name << endl;
         cout << "Description: " << description << endl;
-        cout << "Price: $" << price << endl;
+        cout << "Price: ₹" << price << endl;
         cout << "Product ID: " << pid << endl;
     }
     double getPrice() const { return price; }
@@ -32,13 +32,13 @@ protected:
     Product* furnitureProducts[NUM_FURNITURE];
 public:
     Furniture() : Product("", "", 0, 0) {
-        furnitureProducts[0] = new Product("Mattresses", "Comfortable mattresses for a good night's sleep", 200.0, 1);
-        furnitureProducts[1] = new Product("Office Chair", "Ergonomic chair for office use", 100.0, 2);
-        furnitureProducts[2] = new Product("Study Table", "Spacious study table for work or study", 150.0, 3);
-        furnitureProducts[3] = new Product("Pooja Cabinet", "Traditional pooja cabinet for home worship", 180.0, 4);
-        furnitureProducts[4] = new Product("Gaming Chair", "Specially designed chair for gaming enthusiasts", 250.0, 5);
-        furnitureProducts[5] = new Product("Recliners", "Comfortable recliners for relaxation", 300.0, 6);
-        furnitureProducts[6] = new Product("Wardrobes", "Spacious wardrobes for storing clothes", 400.0, 7);
+        furnitureProducts[0] = new Product("Mattresses", "Comfortable mattresses for a good night's sleep", 16000.0, 1);
+        furnitureProducts[1] = new Product("Office Chair", "Ergonomic chair for office use", 2450.0, 2);
+        furnitureProducts[2] = new Product("Study Table", "Spacious study table for work or study", 3500.0, 3);
+        furnitureProducts[3] = new Product("Pooja Cabinet", "Traditional pooja cabinet for home worship", 18000.0, 4);
+        furnitureProducts[4] = new Product("Gaming Chair", "Specially designed chair for gaming enthusiasts", 8500.0, 5);
+        furnitureProducts[5] = new Product("Recliners", "Comfortable recliners for relaxation", 30000.0, 6);
+        furnitureProducts[6] = new Product("Wardrobes", "Spacious wardrobes for storing clothes", 20000.0, 7);
     }
     void disp_prod() const override {
         cout << "Furniture Products:" << endl;
@@ -65,16 +65,16 @@ protected:
     Product* stationaryProducts[NUM_STATIONARY];
 public:
     Stationary() : Product("", "", 0, 0) {
-        stationaryProducts[0] = new Product("Copier Papers", "High-quality copier papers for printing", 5.0, 8);
-        stationaryProducts[1] = new Product("Pens", "Smooth-writing pens for everyday use", 1.0, 9);
-        stationaryProducts[2] = new Product("Calculators", "Basic calculators for mathematical calculations", 10.0, 10);
-        stationaryProducts[3] = new Product("Geometry Sets", "Geometry sets for school students", 3.0, 11);
-        stationaryProducts[4] = new Product("Colour Crayons", "Vibrant colour crayons for art projects", 2.0, 12);
-        stationaryProducts[5] = new Product("Pencils", "Standard pencils for writing and drawing", 1.0, 13);
-        stationaryProducts[6] = new Product("Penstand", "Penstands for organizing pens and pencils", 4.0, 14);
-        stationaryProducts[7] = new Product("Notes", "Small notepads for jotting down quick notes", 3.0, 15);
-        stationaryProducts[8] = new Product("Sticky Notes", "Colourful sticky notes for reminders and messages", 2.0, 16);
-        stationaryProducts[9] = new Product("Personal Diary", "Personal diaries for journaling and planning", 6.0, 17);
+        stationaryProducts[0] = new Product("Copier Papers", "High-quality copier papers for printing", 127.0, 8);
+        stationaryProducts[1] = new Product("Pens", "Smooth-writing pens for everyday use", 10.0, 9);
+        stationaryProducts[2] = new Product("Calculators", "Basic calculators for mathematical calculations", 1000.0, 10);
+        stationaryProducts[3] = new Product("Geometry Sets", "Geometry sets for school students", 300.0, 11);
+        stationaryProducts[4] = new Product("Colour Crayons", "Vibrant colour crayons for art projects", 20.0, 12);
+        stationaryProducts[5] = new Product("Pencils", "Standard pencils for writing and drawing", 10.0, 13);
+        stationaryProducts[6] = new Product("Penstand", "Penstands for organizing pens and pencils", 75.0, 14);
+        stationaryProducts[7] = new Product("Notes", "Small notepads for jotting down quick notes", 67.0, 15);
+        stationaryProducts[8] = new Product("Sticky Notes", "Colourful sticky notes for reminders and messages", 20.0, 16);
+        stationaryProducts[9] = new Product("Personal Diary", "Personal diaries for journaling and planning", 225.0, 17);
     }
     void disp_prod() const override {
         cout << "Stationary Products:" << endl;
@@ -110,8 +110,8 @@ public:
         electronics[5]= new Product("Noise Buds N1 airpods", "40 Hours of playtime and Quad Mic with ENC", 1,299.00, 23);
         electronics[6]= new Product("Apple iPad 10th Gen tablet", "A14 Bionic Chip and Liquid retina display", 36,900.00, 24);
         electronics[7]= new Product("Samsung S6 Lite tablets", "S-Pen in box and AKG Tuned dolby atmos", 19,999.00, 25);
-        electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81' Display and AI Voice Assistance", 1,299.00, 26);
-        electronics[9]= new Product("boAt Wave Call 2 smartwatch", "1.83' HD Display and DIY Watch Face Studio", 1,099.00, 27);
+        electronics[8]= new Product("Noise Quad Cell smartwatch", "1.81 inches Display and AI Voice Assistance", 1,299.00, 26);
+        electronics[9]= new Product("boAt Wave Call 2 smartwatch", "1.83 inches HD Display and DIY Watch Face Studio", 1,099.00, 27);
         electronics[10]= new Product("Amazon Echo Pop", "Smart Speaker with Alexa and Bluetooth", 3,999.00, 28);
         electronics[11]= new Product("Amazon Echo Dot 4th Gen with clock", "Smart Speaker with powerful bass", 5,499.00, 29);
     }
@@ -241,7 +241,7 @@ public:
             items[i]->disp_prod();
             total += items[i]->getPrice();
         }
-        cout << "Total: Rupees" << total << endl;
+        cout << "Total: ₹" << total << endl;
     }
 
     ~ShoppingCart() {

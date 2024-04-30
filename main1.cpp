@@ -11,13 +11,14 @@ protected:
     double price;
     int pid;
 public:
-    Product(string n, string desc, double p, int pd) : name(n), description(desc), price(p), pid(pd) {}
+    Product(string n, string desc, double p, int pd, int qty) : name(n), description(desc), price(p), pid(pd), quantity(qty) {}
     virtual ~Product() {} // Virtual destructor for polymorphic behavior
     virtual void disp_prod() const {
         cout << "Name: " << name <<endl;
         cout << "Description: " << description <<endl;
         cout << "Price: ₹ " << price <<endl;
         cout << "Product ID: " << pid << endl;
+        cout << "Product quantity available: " << quantity << endl;
     }
     double getPrice() const { return price; }
     string getName() const { return name; }
@@ -221,6 +222,7 @@ class ShoppingCart {
 private:
     static const int MAX_ITEMS = 100;
     Product* items[MAX_ITEMS];
+    int quantity;
     int itemCount;
 public:
     ShoppingCart() : itemCount(0) {}
@@ -228,6 +230,7 @@ public:
     void addItem(const Product& product) {
         if (itemCount < MAX_ITEMS) {
             items[itemCount++] = new Product(product);
+            items[itemCount].quantity = quantity;
             cout << product.getName() << " has been added to your cart." << endl;
         } else {
             cout << "Cart is full. Cannot add more items." << endl;
@@ -239,7 +242,7 @@ public:
         double total = 0.0;
         for (int i = 0; i < itemCount; ++i) {
             items[i]->disp_prod();
-            total += items[i]->getPrice();
+            total += items[i]->getPrice()*quantity;
         }
         cout << "\nTotal: ₹" << total << endl;
     }
@@ -259,13 +262,41 @@ private:
     Electronics electronic;
     Books book;
     Appliances appliance;
+    int availableFurniture[NUM_FURNITURE];
+    int availableStationary[NUM_STATIONARY];
+    int availableElectronics[NUM_ELECTRONICS];
+    int availableBooks[NUM_BOOKS];
+    int availableAppliances[NUM_APPLIANCES];
 public:
-    OnlineStore() {}
+    OnlineStore() 
+    {
+        for (int i = 0; i < NUM_FURNITURE; ++i) 
+        {
+            availableFurniture[i] = 10;
+        }
+        for (int i = 0; i < NUM_STATIONARY; ++i) 
+        {
+            availableStationary[i] = 10;
+        }
+        for (int i = 0; i < NUM_ELECTRONICS; ++i) 
+        {
+            availableElectronics[i] = 10;
+        }
+        for (int i = 0; i < NUM_BOOKS; ++i) 
+        {
+            availableBooks[i] = 10;
+        }
+        for (int i = 0; i < NUM_APPLIANCES; ++i) 
+        {
+            availableAppliances[i] = 10;
+        }
+    }
 
     // Function to prompt user for product selection and add it to cart
     void addToCart() {
         char category;
         int pid;
+        int quantity;
 
         cout << "Enter the category (F for Furniture, S for Stationary, E for Electronics, B for Books, A for Appliances): ";
         cin >> category;
@@ -273,58 +304,156 @@ public:
         if (category == 'F' || category == 'f') {
             cout << "Enter the Product ID of the furniture product you want to add to cart: ";
             cin >> pid;
+            cout << "Enter the quantity: ";
+            cin >> quantity;
             Product* product = furniture.getFurnitureProduct(pid);
-            if (product) {
-                cart.addItem(*product);
-            } else {
-                cout << "Invalid product ID." << endl;
+            if (product) 
+            {
+                if (quantity <= availableQuantity) 
+                {
+                    availableQuantity -= quantity;
+                    cart.addItem(*product);
+                } 
+                else 
+                {
+                    cout << "Sorry, only " << availableQuantity << " items are available. Do you want to buy the available quantity? (y/n): ";
+                    char choice;
+                    cin >> choice;
+                    if (choice == 'y') 
+                    {
+                        cart.addItem(*product);
+                        availableQuantity = 0;
+                    }
+                }
+            }
+            else 
+            {
+            cout << "Invalid product ID." << endl;
             }
         } 
         else if (category == 'S' || category == 's') {
             cout << "Enter the Product ID of the stationary product you want to add to cart: ";
             cin >> pid;
-            Product* product = stationary.getStationaryProduct(pid);
-            if (product) {
-                cart.addItem(*product);
-            } else {
-                cout << "Invalid product ID." << endl;
+            cout << "Enter the quantity: ";
+            cin >> quantity;
+            Product* product = furniture.getStationaryProduct(pid);
+            if (product) 
+            {
+                if (quantity <= availableQuantity) 
+                {
+                    availableQuantity -= quantity;
+                    cart.addItem(*product);
+                } 
+                else 
+                {
+                    cout << "Sorry, only " << availableQuantity << " items are available. Do you want to buy the available quantity? (y/n): ";
+                    char choice;
+                    cin >> choice;
+                    if (choice == 'y') 
+                    {
+                        cart.addItem(*product);
+                        availableQuantity = 0;
+                    }
+                }
+            }
+            else 
+            {
+            cout << "Invalid product ID." << endl;
             }
         } 
         else if (category == 'E' || category == 'e') {
             cout << "Enter the Product ID of the electronic item you want to add to cart: ";
             cin >> pid;
-            Product* product = electronic.getElectronic(pid);
-            if (product) {
-                cart.addItem(*product);
-            } else {
-                cout << "Invalid product ID." << endl;
+            cout << "Enter the quantity: ";
+            cin >> quantity;
+            Product* product = furniture.getElectronic(pid);
+            if (product) 
+            {
+                if (quantity <= availableQuantity) 
+                {
+                    availableQuantity -= quantity;
+                    cart.addItem(*product);
+                } 
+                else 
+                {
+                    cout << "Sorry, only " << availableQuantity << " items are available. Do you want to buy the available quantity? (y/n): ";
+                    char choice;
+                    cin >> choice;
+                    if (choice == 'y') 
+                    {
+                        cart.addItem(*product);
+                        availableQuantity = 0;
+                    }
+                }
             }
-        }
+            else 
+            {
+            cout << "Invalid product ID." << endl;
+            }
+        } 
+           
          else if (category == 'B' || category == 'b') {
             cout << "Enter the Product ID of the book you want to add to cart: ";
             cin >> pid;
-            Product* product = book.getBook(pid);
-            if (product) {
-                cart.addItem(*product);
-            } else {
-                cout << "Invalid product ID." << endl;
+            cout << "Enter the quantity: ";
+            cin >> quantity;
+            Product* product = furniture.getBook(pid);
+            if (product) 
+            {
+                if (quantity <= availableQuantity) 
+                {
+                    availableQuantity -= quantity;
+                    cart.addItem(*product);
+                } 
+                else 
+                {
+                    cout << "Sorry, only " << availableQuantity << " items are available. Do you want to buy the available quantity? (y/n): ";
+                    char choice;
+                    cin >> choice;
+                    if (choice == 'y') 
+                    {
+                        cart.addItem(*product);
+                        availableQuantity = 0;
+                    }
+                }
             }
-        }
+            else 
+            {
+            cout << "Invalid product ID." << endl;
+            }
+        } 
+           
         else if (category == 'A' || category == 'a') {
             cout << "Enter the Product ID of the appliance you want to add to cart: ";
             cin >> pid;
-            Product* product = appliance.getAppliance(pid);
-            if (product) {
-                cart.addItem(*product);
-            } else {
-                cout << "Invalid product ID." << endl;
+            cout << "Enter the quantity: ";
+            cin >> quantity;
+            Product* product = furniture.getAppliance(pid);
+            if (product) 
+            {
+                if (quantity <= availableQuantity) 
+                {
+                    availableQuantity -= quantity;
+                    cart.addItem(*product);
+                } 
+                else 
+                {
+                    cout << "Sorry, only " << availableQuantity << " items are available. Do you want to buy the available quantity? (y/n): ";
+                    char choice;
+                    cin >> choice;
+                    if (choice == 'y') 
+                    {
+                        cart.addItem(*product);
+                        availableQuantity = 0;
+                    }
+                }
             }
-        }      
-        else {
-            cout << "Invalid category." << endl;
-        }
-    }
-
+            else 
+            {
+            cout << "Invalid product ID." << endl;
+            }
+        } 
+           
     // Shopping cart object
     ShoppingCart cart;
 };
